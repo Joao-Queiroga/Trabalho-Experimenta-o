@@ -11,7 +11,8 @@ Avaliação comparativa da qualidade, velocidade e abrangência de ferramentas d
 EXP-TCC-DEP-001
 
 ### 1.3 Versão do documento e histórico de revisão
-- v0.1 — Rascunho inicial (2025-11-23): criação das seções 1 e 2.
+- v0.1 — Rascunho inicial (23/11/2025): criação das seções 1 e 2.
+- v0.2 — Rascunho inicial (24/11/2025): criação das seções 3, 4, 5 e 6.
 
 ### 1.4 Datas (criação, última atualização)
 Data de criação: 23 de novembro de 2025.
@@ -44,53 +45,123 @@ As métricas avaliadas incluem precisão, recall e F1-score para qualidade; temp
 As validações utilizam bases como CVE e NVD, e a comparação estatística dos resultados envolve métodos como t-test, ANOVA ou testes não paramétricos, dependendo da distribuição dos dados.
 
 ## 3. Objetivos e questões (Goal / Question / Metric)
+
 ### 3.1 Objetivo geral
-Preencha o objetivo geral usando um template claro (ex.: GQM).
+Avaliar, por meio de um experimento controlado, a qualidade, velocidade e abrangência de ferramentas de análise de dependências aplicadas em projetos de software de diferentes linguagens, com foco na precisão das detecções, no desempenho durante a execução e na cobertura fornecida sobre vulnerabilidades e versões.
 
 ### 3.2 Objetivos específicos
-Decomponha o objetivo geral em metas mais focadas (O1, O2 etc.).
+O1 — Avaliar a precisão das ferramentas na identificação de dependências e vulnerabilidades.
+O2 — Medir o desempenho das ferramentas em termos de tempo de execução e uso de recursos.
+O3 — Analisar a abrangência das ferramentas em diferentes ecossistemas e níveis de profundidade das dependências.
+O4 — Comparar a consistência dos resultados entre ferramentas que analisam os mesmos projetos.
 
 ### 3.3 Questões de pesquisa / de negócio
-Formule perguntas claras que o experimento responderá.
+Q1.1 — As ferramentas identificam corretamente as dependências presentes nos projetos?
+Q1.2 — Qual é a taxa de falsos positivos e falsos negativos na detecção de vulnerabilidades?
+Q1.3 — A precisão varia entre linguagens diferentes (Rust, JavaScript/TypeScript, Python)?
+
+Q2.1 — Quanto tempo cada ferramenta leva para analisar projetos de tamanhos distintos?
+Q2.2 — Qual é o consumo médio de CPU durante a análise?
+Q2.3 — Qual é o consumo médio de memória RAM durante a análise?
+
+Q3.1 — Quantos ecossistemas cada ferramenta suporta nativamente?
+Q3.2 — Qual é a profundidade máxima da análise do grafo de dependências?
+Q3.3 — Quantos tipos de vulnerabilidades cada ferramenta consegue identificar?
+
+Q4.1 — As ferramentas apresentam resultados consistentes quando analisam o mesmo projeto?
+Q4.2 — Há divergências relevantes nas versões detectadas?
+Q4.3 — A variação entre execuções sucessivas da mesma ferramenta é significativa?
 
 ### 3.4 Métricas associadas (GQM)
-Associe métricas às questões, com definição e fonte dos dados.
+
+#### Tabela GQM (Objetivo → Perguntas → Métricas)
+
+| Objetivo | Pergunta | Métricas |
+|---------|----------|-----------|
+| O1 | Q1.1 | M1: Precisão geral, M2: Recall |
+| O1 | Q1.2 | M3: Taxa de falsos positivos, M4: Taxa de falsos negativos |
+| O1 | Q1.3 | M1: Precisão geral, M5: Precisão por linguagem |
+| O2 | Q2.1 | M6: Tempo total de execução, M7: Tempo médio por arquivo |
+| O2 | Q2.2 | M8: Uso médio de CPU, M9: Pico de CPU |
+| O2 | Q2.3 | M10: Uso médio de RAM, M11: Pico de RAM |
+| O3 | Q3.1 | M12: Número de ecossistemas suportados, M13: Número de gerenciadores suportados |
+| O3 | Q3.2 | M14: Profundidade da árvore de dependências, M6: Tempo total de execução |
+| O3 | Q3.3 | M5: Precisão por linguagem, M3: Taxa de falsos positivos |
+| O4 | Q4.1 | M1: Precisão geral, M4: Taxa de falsos negativos |
+| O4 | Q4.2 | M15: Divergência de versões entre ferramentas, M16: Divergência de vulnerabilidades |
+| O4 | Q4.3 | M17: Variação entre execuções, M6: Tempo total de execução |
+
+---
+
+#### Tabela geral das métricas (descrição e unidade)
+
+| Métrica | Descrição | Unidade |
+|--------|-----------|---------|
+| M1 — Precisão geral | Proporção de detecções corretas sobre o total esperado | Percentual |
+| M2 — Recall | Proporção de dependências esperadas que foram detectadas | Percentual |
+| M3 — Taxa de falsos positivos | Itens detectados incorretamente | Percentual |
+| M4 — Taxa de falsos negativos | Itens não detectados, mas presentes | Percentual |
+| M5 — Precisão por linguagem | Precisão calculada por ecossistema específico | Percentual |
+| M6 — Tempo total de execução | Tempo para completar a análise | Segundos |
+| M7 — Tempo médio por arquivo | Tempo médio gasto por arquivo processado | Milissegundos |
+| M8 — Uso médio de CPU | Média percentual de uso da CPU durante a execução | Percentual |
+| M9 — Pico de CPU | Maior uso registrado durante a análise | Percentual |
+| M10 — Uso médio de RAM | Quantidade média de memória utilizada | Megabytes |
+| M11 — Pico de RAM | Maior uso registrado de memória | Megabytes |
+| M12 — Número de ecossistemas suportados | Quantidade de linguagens/ecossistemas analisáveis | Contagem |
+| M13 — Número de gerenciadores suportados | Total de gerenciadores de pacotes compatíveis | Contagem |
+| M14 — Profundidade da árvore de dependências | Número máximo de níveis analisados | Níveis |
+| M15 — Divergência de versões | Diferença de versões detectadas entre ferramentas | Contagem |
+| M16 — Divergência de vulnerabilidades | Diferença de vulnerabilidades identificadas entre ferramentas | Contagem |
+| M17 — Variação entre execuções | Variação dos resultados em múltiplas execuções | Percentual |
+
 
 ## 4. Escopo e contexto do experimento
+
 ### 4.1 Escopo funcional / de processo
-Explique o que será incluído e excluído do experimento.
+O experimento envolve a análise de dependências em projetos open-source utilizando ferramentas de escaneamento automatizado. Estão incluídos: análise de dependências, detecção de vulnerabilidades, coleta de métricas e comparação estatística.
+Ficam excluídos: análise manual de código-fonte, testes de caixas pretas, análise de desempenho de runtime, e qualquer funcionalidade de integração contínua.
 
 ### 4.2 Contexto do estudo
-Caracterize o contexto onde o estudo ocorrerá.
+O estudo ocorre no contexto de um TCC acadêmico e utiliza repositórios públicos hospedados no GitHub e GitLab. O ambiente experimental será configurado em containers para garantir reprodutibilidade. Os projetos analisados serão escritos em Rust, JavaScript/TypeScript e Python.
 
 ### 4.3 Premissas
-Liste as suposições consideradas verdadeiras.
+As ferramentas escolhidas funcionam corretamente em seus ambientes padrão.
+Os repositórios selecionados representam adequadamente seus ecossistemas.
+As bases de vulnerabilidade públicas estão atualizadas no momento da coleta.
 
 ### 4.4 Restrições
-Registre limitações práticas (tempo, orçamento, ferramentas, acessos).
+Tempo limitado para execução e repetição dos experimentos.
+Restrição ao uso de ferramentas open-source ou com versões gratuitas.
+Dependência da disponibilidade das APIs públicas usadas pelas ferramentas.
 
 ### 4.5 Limitações previstas
-Explique fatores que podem prejudicar a generalização dos resultados.
+Resultados podem não generalizar para projetos muito maiores ou ecossistemas fora dos três analisados.
+Ferramentas podem sofrer variações de desempenho dependendo da máquina física, mesmo usando containers.
+Atualizações das ferramentas após o experimento podem modificar sua precisão e desempenho, afetando comparações futuras.
 
 ## 5. Stakeholders e impacto esperado
+
 ### 5.1 Stakeholders principais
-Liste os grupos ou papéis impactados pelo experimento.
+Os principais stakeholders incluem: estudante responsável pelo TCC, orientador acadêmico, colegas e avaliadores da banca, além de desenvolvedores e equipes que utilizam ferramentas de análise de dependências em ambientes profissionais. Plataformas que fornecem dados de vulnerabilidades (como bases públicas) também são consideradas partes indiretas interessadas.
 
 ### 5.2 Interesses e expectativas dos stakeholders
-Descreva o que cada grupo espera obter do experimento.
+O estudante espera validar o experimento e obter resultados quantitativos que sustentem o TCC. O orientador e a banca esperam rigor metodológico e clareza na análise dos dados. Desenvolvedores e equipes de engenharia esperam identificar quais ferramentas oferecem melhor precisão, desempenho e cobertura. A comunidade técnica pode esperar recomendações práticas que ajudem na escolha de ferramentas de segurança e análise de dependências.
 
 ### 5.3 Impactos potenciais no processo / produto
-Antecipe como o experimento pode afetar prazos, qualidade ou carga de trabalho.
+O experimento pode influenciar decisões sobre ferramentas utilizadas em pipelines de desenvolvimento, além de gerar recomendações que afetem qualidade de código, segurança e prazos de entrega. Também pode aumentar a carga de trabalho momentânea devido à coleta e análise das métricas, mas tende a reduzir retrabalho a longo prazo ao orientar escolhas mais adequadas.
 
 ## 6. Riscos de alto nível, premissas e critérios de sucesso
+
 ### 6.1 Riscos de alto nível
-Identifique os principais riscos de negócio e técnicos.
+Os principais riscos envolvem falhas das ferramentas durante a execução, incompatibilidades entre versões ou ecossistemas, instabilidade das APIs públicas e indisponibilidade de repositórios selecionados. Há risco metodológico caso as métricas não sejam coletadas de forma consistente, bem como risco de viés na escolha dos projetos analisados. Restrições de tempo também podem comprometer a repetição necessária das execuções.
 
 ### 6.2 Critérios de sucesso globais
-Defina as condições para o experimento ser útil e viável.
+O experimento é considerado bem-sucedido se todas as ferramentas selecionadas forem executadas de forma reproduzível, se todas as métricas forem coletadas corretamente e se os resultados permitirem comparar de maneira clara precisão, desempenho e abrangência. É necessário também que os dados obtidos permitam responder todas as questões definidas no GQM e contribuam para as conclusões do TCC.
 
 ### 6.3 Critérios de parada antecipada
-Descreva situações que exigem adiar ou cancelar o experimento.
+O experimento deve ser suspenso se alguma ferramenta apresentar falhas críticas que impeçam a coleta de dados, se APIs públicas essenciais estiverem indisponíveis por tempo prolongado ou se os repositórios selecionados não puderem ser analisados adequadamente. O experimento também deve ser interrompido se não houver tempo suficiente para executar todas as repetições previstas e garantir validade estatística mínima.
+
 
 ## 7. Modelo conceitual e hipóteses
 ### 7.1 Modelo conceitual do experimento

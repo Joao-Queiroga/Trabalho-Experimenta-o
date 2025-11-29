@@ -12,7 +12,8 @@ EXP-TCC-DEP-001
 
 ### 1.3 Versão do documento e histórico de revisão
 - v0.1 — Rascunho inicial (23/11/2025): criação das seções 1 e 2.
-- v0.2 — Rascunho inicial (24/11/2025): criação das seções 3, 4, 5 e 6.
+- v0.2 — Entrega 2 (24/11/2025): criação das seções 3, 4, 5 e 6.
+- v0.3 — Entrega 3 (28/11/2025): criação das seções 7, 8 e 9.
 
 ### 1.4 Datas (criação, última atualização)
 Data de criação: 23 de novembro de 2025.
@@ -162,51 +163,54 @@ O experimento é considerado bem-sucedido se todas as ferramentas selecionadas f
 ### 6.3 Critérios de parada antecipada
 O experimento deve ser suspenso se alguma ferramenta apresentar falhas críticas que impeçam a coleta de dados, se APIs públicas essenciais estiverem indisponíveis por tempo prolongado ou se os repositórios selecionados não puderem ser analisados adequadamente. O experimento também deve ser interrompido se não houver tempo suficiente para executar todas as repetições previstas e garantir validade estatística mínima.
 
-
 ## 7. Modelo conceitual e hipóteses
+
 ### 7.1 Modelo conceitual do experimento
-Explique como os fatores influenciam as respostas.
+O experimento parte da ideia de que diferentes níveis de complexidade e tamanho das dependências podem influenciar o tempo de análise, a precisão da identificação de vulnerabilidades e a clareza dos relatórios produzidos pelo *DepMonitor*. Assim, o modelo conceitual assume que a variação nas características dos projetos analisados impacta diretamente as respostas geradas pela ferramenta. A relação central considera que projetos maiores e com mais dependências tendem a exigir mais tempo de processamento e podem aumentar a chance de erros ou inconsistências, enquanto projetos menores apresentam comportamento mais previsível.
 
 ### 7.2 Hipóteses formais (H0, H1)
-Formule hipóteses nulas e alternativas.
+A hipótese nula (H0) estabelece que a complexidade e o tamanho das dependências dos projetos analisados não afetam o tempo de análise, a precisão da detecção de vulnerabilidades ou a qualidade dos relatórios.
+A hipótese alternativa (H1) estabelece que essas características influenciam de forma significativa pelo menos uma das respostas observadas no experimento.
 
 ### 7.3 Nível de significância e poder
-Defina α e discuta poder estatístico.
+O experimento adota nível de significância α = 0.05, seguindo práticas estatísticas básicas. Esse valor representa a probabilidade máxima de rejeitar a hipótese nula quando ela é verdadeira. O poder estatístico esperado é de pelo menos 0.8, o que garante maior chance de identificar efeitos reais, caso existam.
 
 ## 8. Variáveis, fatores, tratamentos e objetos de estudo
+
 ### 8.1 Objetos de estudo
-Descreva o que será manipulado ou analisado.
+Os objetos de estudo são projetos de software contendo dependências declaradas em diferentes gerenciadores de pacotes, como *Cargo*, *npm* e *pip*. Cada projeto serve como unidade de análise para medir o comportamento do *DepMonitor*.
 
 ### 8.2 Sujeitos / participantes
-Caracterize quem serão os participantes.
+Não há participantes humanos. O experimento utiliza apenas projetos de software como sujeitos experimentais.
 
 ### 8.3 Variáveis independentes
-Liste fatores e níveis.
+As variáveis independentes são o tamanho do conjunto de dependências (pequeno, médio ou grande) e a complexidade do grafo de dependências (baixa ou alta). Essas variáveis definem os níveis dos fatores avaliados.
 
 ### 8.4 Tratamentos
-Descreva cada condição experimental.
+Os tratamentos são combinações dos níveis das variáveis independentes. Cada tratamento corresponde à análise de um projeto com um perfil específico de tamanho e complexidade. O *DepMonitor* é aplicado a cada tratamento para avaliar seu desempenho.
 
 ### 8.5 Variáveis dependentes
-Informe as medidas de resultado observadas.
+As variáveis dependentes incluem o tempo total de análise, a quantidade de vulnerabilidades identificadas corretamente, a ocorrência de falsos positivos e a clareza final do relatório gerado.
 
 ### 8.6 Variáveis de controle / bloqueio
-Liste fatores que serão mantidos constantes.
+O ambiente de execução, o hardware utilizado, a versão do *DepMonitor* e os gerenciadores de pacotes empregados serão mantidos constantes. Isso evita que fatores externos interfiram nos resultados.
 
 ### 8.7 Variáveis de confusão conhecidas
-Identifique fatores que podem distorcer resultados.
+Existe a possibilidade de que dependências com descrições incompletas, metadados inconsistentes ou problemas internos dos próprios repositórios causem distorções nos resultados, dificultando a interpretação precisa do desempenho do *DepMonitor*.
 
 ## 9. Desenho experimental
+
 ### 9.1 Tipo de desenho
-Indique o tipo de desenho experimental e a justificativa.
+O experimento segue um desenho fatorial simples, cruzando tamanho e complexidade das dependências. Esse tipo de desenho facilita identificar efeitos isolados e interações entre os fatores.
 
 ### 9.2 Randomização e alocação
-Explique como será feita a randomização.
+A alocação dos projetos em cada tratamento será feita por randomização simples, evitando que a ordem ou uma seleção tendenciosa influencie os resultados.
 
 ### 9.3 Balanceamento e contrabalanço
-Descreva como garantir grupos comparáveis.
+Cada combinação de fatores terá o mesmo número de projetos. Isso garante balanceamento entre os tratamentos e evita que um grupo tenha peso indevido na análise.
 
 ### 9.4 Número de grupos e sessões
-Informe quantos grupos e quantas sessões haverá.
+O desenho contará com seis grupos, resultantes da combinação dos níveis das variáveis independentes. Cada grupo será analisado em uma única sessão, garantindo consistência operacional.
 
 ## 10. População, sujeitos e amostragem
 ### 10.1 População-alvo

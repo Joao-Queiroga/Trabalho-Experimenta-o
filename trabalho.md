@@ -213,49 +213,56 @@ Cada combinação de fatores terá o mesmo número de projetos. Isso garante bal
 O desenho contará com seis grupos, resultantes da combinação dos níveis das variáveis independentes. Cada grupo será analisado em uma única sessão, garantindo consistência operacional.
 
 ## 10. População, sujeitos e amostragem
+
 ### 10.1 População-alvo
-Descreva a população real representada no experimento.
+A população-alvo corresponde a projetos de software que utilizam gerenciadores de pacotes como *Cargo*, *npm* e *pip*, representando ecossistemas reais onde ferramentas de análise de dependências são aplicadas.
 
 ### 10.2 Critérios de inclusão
-Especifique requisitos mínimos dos participantes.
+Projetos devem possuir manifesto de dependências válido, pelo menos cinco dependências diretas e repositório acessível para coleta automatizada.
 
 ### 10.3 Critérios de exclusão
-Liste condições que impedem participação.
+Projetos sem manifesto atualizado, que exigem autenticação privada ou que não compilam no ambiente configurado serão excluídos.
 
 ### 10.4 Tamanho da amostra planejado
-Defina quantos participantes por grupo.
+O estudo utilizará 30 projetos no total, distribuídos igualmente entre os seis tratamentos (cinco projetos por grupo).
 
 ### 10.5 Método de seleção / recrutamento
-Explique como os participantes serão recrutados.
+Os projetos serão selecionados por amostragem aleatória simples a partir de listas públicas de repositórios populares e ativos.
 
 ### 10.6 Treinamento e preparação
-Descreva materiais ou treinamentos fornecidos.
+Como não há participantes humanos, o único preparo consiste em validar previamente o ambiente de execução e testar o pipeline de coleta.
 
 ## 11. Instrumentação e protocolo operacional
+
 ### 11.1 Instrumentos de coleta
-Liste questionários, logs, formulários, etc.
+Serão utilizados logs gerados pelo *DepMonitor*, registros automáticos de tempo de execução, arquivos de saída dos relatórios e um formulário padronizado para registrar falhas.
 
 ### 11.2 Materiais de suporte
-Descreva instruções, guias ou slides utilizados.
+O experimento utilizará um guia operacional com instruções de execução, parâmetros padronizados e especificações do ambiente.
 
 ### 11.3 Procedimento experimental
-Escreva o passo a passo do experimento.
+1. Selecionar os projetos conforme os critérios.
+2. Configurar o ambiente padronizado de execução.
+3. Executar o *DepMonitor* em cada projeto de acordo com seu tratamento.
+4. Registrar tempos, relatórios, vulnerabilidades detectadas e eventuais falhas.
+5. Armazenar os dados em planilha padronizada.
 
 ### 11.4 Plano de piloto
-Indique se haverá piloto e critérios de ajuste.
+Será executado um piloto com dois projetos (um simples e um complexo). Se ocorrer falha no ambiente ou inconsistência nos logs, ajustes serão realizados antes da execução completa.
 
 ## 12. Plano de análise de dados
+
 ### 12.1 Estratégia geral de análise
-Explique como os dados responderão às questões.
+A análise comparará tratamentos para verificar se tamanho e complexidade das dependências influenciam tempo de análise, precisão e clareza dos resultados.
 
 ### 12.2 Métodos estatísticos
-Liste testes e técnicas estatísticas.
+Serão utilizados testes de normalidade, ANOVA ou Kruskal-Wallis (dependendo da distribuição), e testes post-hoc para comparar grupos. Para precisão da detecção, poderá ser utilizado teste de proporções.
 
 ### 12.3 Tratamento de dados faltantes e outliers
-Defina regras prévias para lidar com dados ausentes.
+Dados ausentes serão removidos se representarem falhas inevitáveis. Outliers serão identificados por IQR e avaliados para possível exclusão quando decorrentes de erros técnicos.
 
 ### 12.4 Análise de dados qualitativos
-Descreva técnicas para dados qualitativos.
+Relatórios gerados serão avaliados por análise de conteúdo simples, classificando clareza e organização segundo um conjunto de categorias definidas no protocolo.
 
 ## 13. Avaliação de validade
 ### 13.1 Validade de conclusão

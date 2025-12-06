@@ -8,53 +8,62 @@
 Avaliação comparativa da qualidade, velocidade e abrangência de ferramentas de análise de dependências em projetos de software.
 
 ### 1.2 ID / código
-EXP-TCC-DEP-001
+EXP-ANDEP-001
 
 ### 1.3 Versão do documento e histórico de revisão
 - v0.1 — Rascunho inicial (23/11/2025): criação das seções 1 e 2.
 - v0.2 — Entrega 2 (24/11/2025): criação das seções 3, 4, 5 e 6.
 - v0.3 — Entrega 3 (28/11/2025): criação das seções 7, 8 e 9.
+- v0.4 — Entrega 4 (01/12/2025): criação das seções 10, 11 e 12.
+- v0.5 — Entrega 5 (05/12/2025): criação da seção 13.
 
 ### 1.4 Datas (criação, última atualização)
-Data de criação: 23 de novembro de 2025.
-Última atualização: 23 de novembro de 2025.
+- Data de criação: 23 de novembro de 2025.
+- Última atualização: 5 de dezembro de 2025.
 
 ### 1.5 Autores (nome, área, contato)
 João Francisco Carvalho Soares de Oliveira Queiroga — Engenharia de Software — joao.queiroga@example.com
 
 ### 1.6 Responsável principal (PI / dono do experimento)
-João Francisco Carvalho Soares de Oliveira Queiroga — estudante (dono do experimento / responsável técnico)
+João Francisco Carvalho S. O. Queiroga — estudante (responsável técnico)
 
 ### 1.7 Projeto / produto / iniciativa relacionada
-Projeto de TCC: *DepMonitor* — ferramenta para análise de dependências e identificação de versões e vulnerabilidades em projetos multi-linguagem.
+Estudo independente de comparação de ferramentas de análise de dependências aplicado a projetos multi-linguagem.
+
+---
 
 ## 2. Contexto e problema
 
 ### 2.1 Descrição do problema / oportunidade
-Ferramentas de análise de dependências, como scanners de vulnerabilidade e analisadores de grafo, são amplamente utilizadas para detectar versões, vulnerabilidades e relações entre pacotes. Porém, ainda há incertezas quanto à qualidade dos resultados obtidos, ao tempo de execução para analisar projetos de portes variados e ao nível de abrangência em diferentes ecossistemas. O experimento busca comparar ferramentas representativas para apoiar decisões técnicas sobre quais delas oferecem melhor precisão, desempenho e cobertura.
+Ferramentas de análise de dependências são usadas para identificar versões, vulnerabilidades e relações entre pacotes. Existem incertezas sobre três dimensões centrais: (i) qualidade — precisão e completude das detecções (falsos positivos/negativos); (ii) velocidade — tempo requerido para analisar repositórios de diferentes tamanhos; e (iii) abrangência — cobertura de ecossistemas e gerenciadores de pacotes (ex.: Cargo, npm, pip). O experimento visa comparar ferramentas representativas para gerar recomendações práticas e evidências empíricas.
 
 ### 2.2 Contexto organizacional e técnico
-O experimento é desenvolvido no contexto de um Trabalho de Conclusão de Curso (TCC), com orientação acadêmica e uso de repositórios open-source como base de análise.
-No aspecto técnico, os testes envolvem repositórios hospedados em plataformas como GitHub e GitLab, incluindo projetos escritos em Rust, JavaScript/TypeScript e Python. As ferramentas analisadas incluem scanners de dependências e mecanismos de consulta a bases de vulnerabilidade públicas. A execução exige ambientes reprodutíveis por meio de containers e scripts de automação para coleta de métricas de qualidade, desempenho e abrangência.
+- Contexto organizacional: trabalho acadêmico conduzido com orientação; uso de repositórios open-source como base experimental.
+- Contexto técnico: execução em ambientes reprodutíveis (containers), análise de repositórios públicos em GitHub/GitLab, focalizando projetos em Rust, JavaScript/TypeScript e Python; coleta automatizada de logs e métricas.
 
-### 2.3 Trabalhos e evidências prévias
-Incluem documentação e relatórios de ferramentas amplamente utilizadas, estudos acadêmicos sobre segurança da cadeia de suprimentos de software e detecção de vulnerabilidades, além de execuções piloto que apoiaram o ajuste preliminar dos procedimentos do experimento.
+### 2.3 Trabalhos e evidências prévias (internos e externos)
+- Documentação e whitepapers das ferramentas de mercado; relatórios de auditoria.
+- Estudos acadêmicos sobre segurança da cadeia de suprimentos de software e comparações de scanners.
+- Execuções piloto em amostras reduzidas para validar procedimentos.
 
 ### 2.4 Referencial teórico e empírico essencial
-A fundamentação do experimento envolve conceitos de gerenciamento de dependências, vulnerabilidades e segurança da cadeia de suprimentos de software.
-As métricas avaliadas incluem precisão, recall e F1-score para qualidade; tempo de execução e uso de recursos para desempenho; e número de ecossistemas e profundidade da análise para abrangência.
-As validações utilizam bases como CVE e NVD, e a comparação estatística dos resultados envolve métodos como t-test, ANOVA ou testes não paramétricos, dependendo da distribuição dos dados.
+- Conceitos de gestão de dependências, vulnerabilidades e *software supply chain*.
+- Métricas: precisão, recall, F1; desempenho: tempo, uso de CPU/RAM; abrangência: número de ecossistemas suportados e profundidade da árvore de dependências.
+- Fontes de verdade para vulnerabilidades: bases CVE/NVD e feeds públicos.
+- Métodos estatísticos: testes de hipótese, ANOVA, testes não paramétricos, análise de poder.
+
+---
 
 ## 3. Objetivos e questões (Goal / Question / Metric)
 
 ### 3.1 Objetivo geral
-Avaliar, por meio de um experimento controlado, a qualidade, velocidade e abrangência de ferramentas de análise de dependências aplicadas em projetos de software de diferentes linguagens, com foco na precisão das detecções, no desempenho durante a execução e na cobertura fornecida sobre vulnerabilidades e versões.
+Avaliar a qualidade, velocidade e abrangência de ferramentas de análise de dependências aplicadas a projetos de software multi-linguagem, fornecendo evidências que apoiem decisões de adoção e configuração.
 
 ### 3.2 Objetivos específicos
 O1 — Avaliar a precisão das ferramentas na identificação de dependências e vulnerabilidades.
 O2 — Medir o desempenho das ferramentas em termos de tempo de execução e uso de recursos.
 O3 — Analisar a abrangência das ferramentas em diferentes ecossistemas e níveis de profundidade das dependências.
-O4 — Comparar a consistência dos resultados entre ferramentas que analisam os mesmos projetos.
+O4 — Comparar a consistência e a concordância dos resultados entre ferramentas ao analisar os mesmos projetos.
 
 ### 3.3 Questões de pesquisa / de negócio
 Q1.1 — As ferramentas identificam corretamente as dependências presentes nos projetos?
@@ -70,12 +79,12 @@ Q3.2 — Qual é a profundidade máxima da análise do grafo de dependências?
 Q3.3 — Quantos tipos de vulnerabilidades cada ferramenta consegue identificar?
 
 Q4.1 — As ferramentas apresentam resultados consistentes quando analisam o mesmo projeto?
-Q4.2 — Há divergências relevantes nas versões detectadas?
+Q4.2 — Há divergências relevantes nas versões detectadas entre ferramentas?
 Q4.3 — A variação entre execuções sucessivas da mesma ferramenta é significativa?
 
 ### 3.4 Métricas associadas (GQM)
 
-#### Tabela GQM (Objetivo → Perguntas → Métricas)
+#### Tabela GQM (Objetivo → Pergunta → Métricas)
 
 | Objetivo | Pergunta | Métricas |
 |---------|----------|-----------|
@@ -91,8 +100,6 @@ Q4.3 — A variação entre execuções sucessivas da mesma ferramenta é signif
 | O4 | Q4.1 | M1: Precisão geral, M4: Taxa de falsos negativos |
 | O4 | Q4.2 | M15: Divergência de versões entre ferramentas, M16: Divergência de vulnerabilidades |
 | O4 | Q4.3 | M17: Variação entre execuções, M6: Tempo total de execução |
-
----
 
 #### Tabela geral das métricas (descrição e unidade)
 
@@ -116,169 +123,222 @@ Q4.3 — A variação entre execuções sucessivas da mesma ferramenta é signif
 | M16 — Divergência de vulnerabilidades | Diferença de vulnerabilidades identificadas entre ferramentas | Contagem |
 | M17 — Variação entre execuções | Variação dos resultados em múltiplas execuções | Percentual |
 
+---
 
 ## 4. Escopo e contexto do experimento
 
 ### 4.1 Escopo funcional / de processo
-O experimento envolve a análise de dependências em projetos open-source utilizando ferramentas de escaneamento automatizado. Estão incluídos: análise de dependências, detecção de vulnerabilidades, coleta de métricas e comparação estatística.
-Ficam excluídos: análise manual de código-fonte, testes de caixas pretas, análise de desempenho de runtime, e qualquer funcionalidade de integração contínua.
+Inclui: execução automatizada de ferramentas de análise de dependências em repositórios open-source, detecção de dependências e vulnerabilidades, coleta de métricas e comparação estatística.
+Exclui: análise manual de código-fonte, auditoria de segurança profunda e integração contínua em pipelines de produção (salvo replicação futura).
 
 ### 4.2 Contexto do estudo
-O estudo ocorre no contexto de um TCC acadêmico e utiliza repositórios públicos hospedados no GitHub e GitLab. O ambiente experimental será configurado em containers para garantir reprodutibilidade. Os projetos analisados serão escritos em Rust, JavaScript/TypeScript e Python.
+Estudo acadêmico em ambiente controlado, utilizando repositórios públicos em GitHub/GitLab, com foco em projetos nas linguagens Rust, JavaScript/TypeScript e Python. Ambientes reprodutíveis via containers.
 
 ### 4.3 Premissas
-As ferramentas escolhidas funcionam corretamente em seus ambientes padrão.
-Os repositórios selecionados representam adequadamente seus ecossistemas.
-As bases de vulnerabilidade públicas estão atualizadas no momento da coleta.
+- Ferramentas selecionadas funcionam em suas configurações padrão;
+- Repositórios escolhidos são representativos dos ecossistemas;
+- Bases públicas de vulnerabilidades (CVE/NVD) estão atualizadas durante a coleta.
 
 ### 4.4 Restrições
-Tempo limitado para execução e repetição dos experimentos.
-Restrição ao uso de ferramentas open-source ou com versões gratuitas.
-Dependência da disponibilidade das APIs públicas usadas pelas ferramentas.
+- Tempo limitado para execução e repetição de testes;
+- Uso preferencial de ferramentas open-source ou versões gratuitas;
+- Dependência da disponibilidade de serviços externos e APIs.
 
 ### 4.5 Limitações previstas
-Resultados podem não generalizar para projetos muito maiores ou ecossistemas fora dos três analisados.
-Ferramentas podem sofrer variações de desempenho dependendo da máquina física, mesmo usando containers.
-Atualizações das ferramentas após o experimento podem modificar sua precisão e desempenho, afetando comparações futuras.
+- Generalização limitada para ecossistemas não avaliados;
+- Variação de desempenho pela máquina física apesar do uso de containers;
+- Atualizações das ferramentas podem alterar resultados futuros.
+
+---
 
 ## 5. Stakeholders e impacto esperado
 
 ### 5.1 Stakeholders principais
-Os principais stakeholders incluem: estudante responsável pelo TCC, orientador acadêmico, colegas e avaliadores da banca, além de desenvolvedores e equipes que utilizam ferramentas de análise de dependências em ambientes profissionais. Plataformas que fornecem dados de vulnerabilidades (como bases públicas) também são consideradas partes indiretas interessadas.
+Estudante responsável, orientador, banca avaliadora, desenvolvedores e equipes de engenharia, e a comunidade técnica interessada em práticas de análise de dependências.
 
 ### 5.2 Interesses e expectativas dos stakeholders
-O estudante espera validar o experimento e obter resultados quantitativos que sustentem o TCC. O orientador e a banca esperam rigor metodológico e clareza na análise dos dados. Desenvolvedores e equipes de engenharia esperam identificar quais ferramentas oferecem melhor precisão, desempenho e cobertura. A comunidade técnica pode esperar recomendações práticas que ajudem na escolha de ferramentas de segurança e análise de dependências.
+- Estudante: obter evidências sólidas para análise metodológica.
+- Orientador/banca: rigor metodológico e clareza nos resultados.
+- Desenvolvedores/equipes: recomendações práticas sobre ferramentas.
+- Comunidade: insights sobre limitações e vantagens de cada ferramenta.
 
 ### 5.3 Impactos potenciais no processo / produto
-O experimento pode influenciar decisões sobre ferramentas utilizadas em pipelines de desenvolvimento, além de gerar recomendações que afetem qualidade de código, segurança e prazos de entrega. Também pode aumentar a carga de trabalho momentânea devido à coleta e análise das métricas, mas tende a reduzir retrabalho a longo prazo ao orientar escolhas mais adequadas.
+O experimento pode influenciar seleção de ferramentas em pipelines, guiar políticas de segurança e impactar carga de trabalho durante a fase de coleta. Em médio prazo, resultados podem reduzir retrabalho ao orientar escolhas mais adequadas.
+
+---
 
 ## 6. Riscos de alto nível, premissas e critérios de sucesso
 
 ### 6.1 Riscos de alto nível
-Os principais riscos envolvem falhas das ferramentas durante a execução, incompatibilidades entre versões ou ecossistemas, instabilidade das APIs públicas e indisponibilidade de repositórios selecionados. Há risco metodológico caso as métricas não sejam coletadas de forma consistente, bem como risco de viés na escolha dos projetos analisados. Restrições de tempo também podem comprometer a repetição necessária das execuções.
+- Falhas ou travamentos das ferramentas durante execução;
+- Incompatibilidades entre versões de gerenciadores e ferramentas;
+- Indisponibilidade de APIs ou bases públicas;
+- Viés na seleção de projetos;
+- Tempo insuficiente para repetir execuções necessárias.
 
 ### 6.2 Critérios de sucesso globais
-O experimento é considerado bem-sucedido se todas as ferramentas selecionadas forem executadas de forma reproduzível, se todas as métricas forem coletadas corretamente e se os resultados permitirem comparar de maneira clara precisão, desempenho e abrangência. É necessário também que os dados obtidos permitam responder todas as questões definidas no GQM e contribuam para as conclusões do TCC.
+- Execução reprodutível das ferramentas nos projetos selecionados;
+- Coleta completa das métricas definidas;
+- Dados suficientes para responder às questões do GQM com validade estatística mínima;
+- Documentação do processo e resultados.
 
-### 6.3 Critérios de parada antecipada
-O experimento deve ser suspenso se alguma ferramenta apresentar falhas críticas que impeçam a coleta de dados, se APIs públicas essenciais estiverem indisponíveis por tempo prolongado ou se os repositórios selecionados não puderem ser analisados adequadamente. O experimento também deve ser interrompido se não houver tempo suficiente para executar todas as repetições previstas e garantir validade estatística mínima.
+### 6.3 Critérios de parada antecipada (pré-execução)
+- Falha crítica que impeça coleta de dados em diversas ferramentas;
+- Indisponibilidade prolongada de APIs essenciais;
+- Impossibilidade de executar repetições suficientes para garantir poder estatístico.
+
+---
 
 ## 7. Modelo conceitual e hipóteses
 
 ### 7.1 Modelo conceitual do experimento
-O experimento parte da ideia de que diferentes níveis de complexidade e tamanho das dependências podem influenciar o tempo de análise, a precisão da identificação de vulnerabilidades e a clareza dos relatórios produzidos pelo *DepMonitor*. Assim, o modelo conceitual assume que a variação nas características dos projetos analisados impacta diretamente as respostas geradas pela ferramenta. A relação central considera que projetos maiores e com mais dependências tendem a exigir mais tempo de processamento e podem aumentar a chance de erros ou inconsistências, enquanto projetos menores apresentam comportamento mais previsível.
+O modelo assume que fatores como tamanho do projeto e complexidade do grafo de dependências influenciam as respostas: tempo de execução, precisão das detecções e abrangência da análise. A interação entre ferramentas e características do repositório pode gerar variações mensuráveis em cada métrica.
 
 ### 7.2 Hipóteses formais (H0, H1)
-A hipótese nula (H0) estabelece que a complexidade e o tamanho das dependências dos projetos analisados não afetam o tempo de análise, a precisão da detecção de vulnerabilidades ou a qualidade dos relatórios.
-A hipótese alternativa (H1) estabelece que essas características influenciam de forma significativa pelo menos uma das respostas observadas no experimento.
+- H0 (nula): não há diferença estatisticamente significativa entre as ferramentas nas métricas de qualidade, velocidade e abrangência.
+- H1 (alternativa): existe diferença estatisticamente significativa entre pelo menos duas ferramentas em pelo menos uma das métricas.
 
-### 7.3 Nível de significância e poder
-O experimento adota nível de significância α = 0.05, seguindo práticas estatísticas básicas. Esse valor representa a probabilidade máxima de rejeitar a hipótese nula quando ela é verdadeira. O poder estatístico esperado é de pelo menos 0.8, o que garante maior chance de identificar efeitos reais, caso existam.
+### 7.3 Nível de significância e considerações de poder
+Nível de significância adotado: α = 0.05. Objetivo de poder estatístico: ≥ 0.8; cálculo de tamanho amostral será usado para justificar número de repetições e projetos por grupo.
+
+---
 
 ## 8. Variáveis, fatores, tratamentos e objetos de estudo
 
 ### 8.1 Objetos de estudo
-Os objetos de estudo são projetos de software contendo dependências declaradas em diferentes gerenciadores de pacotes, como *Cargo*, *npm* e *pip*. Cada projeto serve como unidade de análise para medir o comportamento do *DepMonitor*.
+Repositórios de software com manifests de dependência (por exemplo, Cargo.toml, package.json, requirements.txt) nas linguagens alvo.
 
-### 8.2 Sujeitos / participantes
-Não há participantes humanos. O experimento utiliza apenas projetos de software como sujeitos experimentais.
+### 8.2 Sujeitos / participantes (visão geral)
+Não há sujeitos humanos; as unidades de análise são os projetos de software.
 
-### 8.3 Variáveis independentes
-As variáveis independentes são o tamanho do conjunto de dependências (pequeno, médio ou grande) e a complexidade do grafo de dependências (baixa ou alta). Essas variáveis definem os níveis dos fatores avaliados.
+### 8.3 Variáveis independentes (fatores) e seus níveis
+- Tamanho do conjunto de dependências: pequeno, médio, grande.
+- Complexidade do grafo: baixa, alta.
+- Ecossistema/language: Rust, JavaScript/TypeScript, Python (fator de bloqueio/controlador).
 
-### 8.4 Tratamentos
-Os tratamentos são combinações dos níveis das variáveis independentes. Cada tratamento corresponde à análise de um projeto com um perfil específico de tamanho e complexidade. O *DepMonitor* é aplicado a cada tratamento para avaliar seu desempenho.
+### 8.4 Tratamentos (condições experimentais)
+Cada tratamento corresponde à combinação de níveis (por exemplo, projeto de tamanho grande + grafo de alta complexidade). As ferramentas serão aplicadas a projetos representando cada tratamento.
 
-### 8.5 Variáveis dependentes
-As variáveis dependentes incluem o tempo total de análise, a quantidade de vulnerabilidades identificadas corretamente, a ocorrência de falsos positivos e a clareza final do relatório gerado.
+### 8.5 Variáveis dependentes (respostas)
+- Tempo total de análise (M6);
+- Precisão geral e por linguagem (M1, M5);
+- Taxas de falsos positivos/negativos (M3, M4);
+- Número de dependências detectadas e cobertura (M12, M14).
 
 ### 8.6 Variáveis de controle / bloqueio
-O ambiente de execução, o hardware utilizado, a versão do *DepMonitor* e os gerenciadores de pacotes empregados serão mantidos constantes. Isso evita que fatores externos interfiram nos resultados.
+- Ambiente (containers), hardware, versões das ferramentas e gerenciadores, e políticas de limpeza de cache serão mantidos constantes.
 
-### 8.7 Variáveis de confusão conhecidas
-Existe a possibilidade de que dependências com descrições incompletas, metadados inconsistentes ou problemas internos dos próprios repositórios causem distorções nos resultados, dificultando a interpretação precisa do desempenho do *DepMonitor*.
+### 8.7 Possíveis variáveis de confusão conhecidas
+- Repositórios com metadados incompletos;
+- Dependências internas não publicadas;
+- Variações temporais nas bases de vulnerabilidades.
+
+---
 
 ## 9. Desenho experimental
 
-### 9.1 Tipo de desenho
-O experimento segue um desenho fatorial simples, cruzando tamanho e complexidade das dependências. Esse tipo de desenho facilita identificar efeitos isolados e interações entre os fatores.
+### 9.1 Tipo de desenho (completamente randomizado, blocos, fatorial, etc.)
+Desenho fatorial (2 fatores principais: tamanho × complexidade) com blocos por ecossistema para controlar efeito de linguagem.
 
 ### 9.2 Randomização e alocação
-A alocação dos projetos em cada tratamento será feita por randomização simples, evitando que a ordem ou uma seleção tendenciosa influencie os resultados.
+Projetos serão alocados aleatoriamente aos tratamentos dentro de cada bloco/ecossistema para reduzir viés de seleção.
 
 ### 9.3 Balanceamento e contrabalanço
-Cada combinação de fatores terá o mesmo número de projetos. Isso garante balanceamento entre os tratamentos e evita que um grupo tenha peso indevido na análise.
+Cada combinação de fatores terá o mesmo número de projetos (balanceamento). Execuções serão repetidas em ordens variadas para mitigar efeitos de ordem.
 
 ### 9.4 Número de grupos e sessões
-O desenho contará com seis grupos, resultantes da combinação dos níveis das variáveis independentes. Cada grupo será analisado em uma única sessão, garantindo consistência operacional.
+Seis combinações principais (3 tamanhos × 2 complexidades) com n projetos por combinação; número de repetições conforme cálculo de poder.
+
+---
 
 ## 10. População, sujeitos e amostragem
 
 ### 10.1 População-alvo
-A população-alvo corresponde a projetos de software que utilizam gerenciadores de pacotes como *Cargo*, *npm* e *pip*, representando ecossistemas reais onde ferramentas de análise de dependências são aplicadas.
+Projetos de software open-source que usam gerenciadores de dependência típicos (Cargo, npm, pip) e que representem diferentes tamanhos e níveis de complexidade.
 
-### 10.2 Critérios de inclusão
-Projetos devem possuir manifesto de dependências válido, pelo menos cinco dependências diretas e repositório acessível para coleta automatizada.
+### 10.2 Critérios de inclusão de sujeitos
+- Manifesto de dependências válido;
+- Repositório público acessível;
+- Mínimo de 5 dependências diretas.
 
-### 10.3 Critérios de exclusão
-Projetos sem manifesto atualizado, que exigem autenticação privada ou que não compilam no ambiente configurado serão excluídos.
+### 10.3 Critérios de exclusão de sujeitos
+- Repositórios privados ou inacessíveis;
+- Projetos sem manifesto ou com manifesto corrompido;
+- Projetos que exigem credenciais para build/test.
 
-### 10.4 Tamanho da amostra planejado
-O estudo utilizará 30 projetos no total, distribuídos igualmente entre os seis tratamentos (cinco projetos por grupo).
+### 10.4 Tamanho da amostra planejado (por grupo)
+Planejado: 30 projetos no total, 5 por combinação (ajustável conforme cálculo de poder).
 
 ### 10.5 Método de seleção / recrutamento
-Os projetos serão selecionados por amostragem aleatória simples a partir de listas públicas de repositórios populares e ativos.
+Amostragem aleatória simples de repositórios populares e ativos, com estratificação por ecossistema e tamanho.
 
-### 10.6 Treinamento e preparação
-Como não há participantes humanos, o único preparo consiste em validar previamente o ambiente de execução e testar o pipeline de coleta.
+### 10.6 Treinamento e preparação dos sujeitos
+Não aplicável a sujeitos humanos; preparação técnica inclui validação do ambiente e teste do pipeline de coleta.
+
+---
 
 ## 11. Instrumentação e protocolo operacional
 
-### 11.1 Instrumentos de coleta
-Serão utilizados logs gerados pelo *DepMonitor*, registros automáticos de tempo de execução, arquivos de saída dos relatórios e um formulário padronizado para registrar falhas.
+### 11.1 Instrumentos de coleta (questionários, logs, planilhas, etc.)
+- Logs de execução das ferramentas;
+- Arquivos de saída/relatórios das ferramentas;
+- Scripts automatizados de medição de tempo e uso de recursos;
+- Planilha padronizada para consolidação.
 
-### 11.2 Materiais de suporte
-O experimento utilizará um guia operacional com instruções de execução, parâmetros padronizados e especificações do ambiente.
+### 11.2 Materiais de suporte (instruções, guias)
+Guia operacional com passos de execução, parâmetros padrão, checklist de preparação e template de registro de falhas.
 
-### 11.3 Procedimento experimental
-1. Selecionar os projetos conforme os critérios.
-2. Configurar o ambiente padronizado de execução.
-3. Executar o *DepMonitor* em cada projeto de acordo com seu tratamento.
-4. Registrar tempos, relatórios, vulnerabilidades detectadas e eventuais falhas.
-5. Armazenar os dados em planilha padronizada.
+### 11.3 Procedimento experimental (protocolo – visão passo a passo)
+1. Seleção e validação dos projetos conforme critérios.
+2. Configuração do ambiente isolado (container) para a execução.
+3. Limpeza de cache e preparação do projeto.
+4. Execução da ferramenta sobre o projeto (repetir conforme número de repetições).
+5. Coleta automática de logs, tempos e relatórios.
+6. Armazenamento e padronização dos resultados em planilha.
+7. Repetição para todas combinações de tratamento.
 
-### 11.4 Plano de piloto
-Será executado um piloto com dois projetos (um simples e um complexo). Se ocorrer falha no ambiente ou inconsistência nos logs, ajustes serão realizados antes da execução completa.
+### 11.4 Plano de piloto (se haverá piloto, escopo e critérios de ajuste)
+Piloto com 2 projetos (um simples, um complexo). Critérios de ajuste: inconsistência nos logs, falhas de execução ou métricas inválidas; ajustes no script ou no ambiente antes da execução em larga escala.
 
-## 12. Plano de análise de dados
+---
 
-### 12.1 Estratégia geral de análise
-A análise comparará tratamentos para verificar se tamanho e complexidade das dependências influenciam tempo de análise, precisão e clareza dos resultados.
+## 12. Plano de análise de dados (pré-execução)
 
-### 12.2 Métodos estatísticos
-Serão utilizados testes de normalidade, ANOVA ou Kruskal-Wallis (dependendo da distribuição), e testes post-hoc para comparar grupos. Para precisão da detecção, poderá ser utilizado teste de proporções.
+### 12.1 Estratégia geral de análise (como responderá às questões)
+- Comparações entre ferramentas por métricas definidas;
+- Análise dentro de blocos por ecossistema;
+- Relatórios de diferenças estatisticamente significativas e interpretação prática.
+
+### 12.2 Métodos estatísticos planejados
+- Testes de normalidade (Shapiro-Wilk);
+- ANOVA factorial ou Kruskal-Wallis para comparações entre grupos;
+- Testes post-hoc (Tukey ou Dunn) conforme necessário;
+- Teste de proporções para métricas categóricas;
+- Cálculo de tamanhos de efeito e intervalos de confiança.
 
 ### 12.3 Tratamento de dados faltantes e outliers
-Dados ausentes serão removidos se representarem falhas inevitáveis. Outliers serão identificados por IQR e avaliados para possível exclusão quando decorrentes de erros técnicos.
+- Dados faltantes: investigar causa; excluir somente se decorrente de falha técnica; documentar motivos.
+- Outliers: identificar por IQR; avaliar se representam erro técnico; decidir exclusão ou inclusão com justificativa.
 
-### 12.4 Análise de dados qualitativos
-Relatórios gerados serão avaliados por análise de conteúdo simples, classificando clareza e organização segundo um conjunto de categorias definidas no protocolo.
+### 12.4 Plano de análise para dados qualitativos (se houver)
+Análise de conteúdo básica para seções textuais dos relatórios; categorização de clareza, completude e utilidade segundo códigos predefinidos.
 
 ## 13. Avaliação de validade
+
 ### 13.1 Validade de conclusão
-Liste ameaças e mitigação.
+Ameaças incluem variabilidade nos tempos de execução, erros de medição e tamanho reduzido da amostra. A mitigação envolve repetição das execuções, automação completa da coleta e uso de testes estatísticos adequados ao tipo de distribuição.
 
 ### 13.2 Validade interna
-Identifique ameaças e estratégias de controle.
+Há risco de interferência do ambiente (carga da máquina, versão do sistema, cache). A mitigação será feita com ambiente isolado, execução sequencial e limpeza de cache entre rodadas.
 
 ### 13.3 Validade de constructo
-Discuta representação dos conceitos medidos.
+As métricas podem não capturar totalmente aspectos como “qualidade” ou “abrangência”. Para mitigar, cada constructo foi associado a múltiplas métricas, definidas operacionalmente com critérios claros.
 
 ### 13.4 Validade externa
-Discuta generalização dos resultados.
+Os resultados podem não se aplicar a ecossistemas fora de Rust, JavaScript/TypeScript e Python ou a projetos muito maiores. A mitigação será selecionar projetos variados e documentar as características da amostra para permitir replicação.
 
 ### 13.5 Resumo das ameaças e mitigação
-Resuma ameaças principais e ações.
+As principais ameaças envolvem limitações de ambiente, escopo restrito e potencial ruído nas medidas. As ações de mitigação incluem automação, ambiente controlado, múltiplas métricas por conceito e documentação detalhada para facilitar replicação.
 
 ## 14. Ética, privacidade e conformidade
 ### 14.1 Questões éticas

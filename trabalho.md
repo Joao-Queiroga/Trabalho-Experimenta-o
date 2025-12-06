@@ -14,6 +14,8 @@ EXP-TCC-DEP-001
 - v0.1 — Rascunho inicial (23/11/2025): criação das seções 1 e 2.
 - v0.2 — Entrega 2 (24/11/2025): criação das seções 3, 4, 5 e 6.
 - v0.3 — Entrega 3 (28/11/2025): criação das seções 7, 8 e 9.
+- v0.4 — Entrega 4 (01/12/2025): criação das seções 10, 11 e 12.
+- v0.5 — Entrega 5 (05/12/2025): criação da seção 13.
 
 ### 1.4 Datas (criação, última atualização)
 Data de criação: 23 de novembro de 2025.
@@ -265,20 +267,21 @@ Dados ausentes serão removidos se representarem falhas inevitáveis. Outliers s
 Relatórios gerados serão avaliados por análise de conteúdo simples, classificando clareza e organização segundo um conjunto de categorias definidas no protocolo.
 
 ## 13. Avaliação de validade
+
 ### 13.1 Validade de conclusão
-Liste ameaças e mitigação.
+Ameaças incluem variabilidade nos tempos de execução, erros de medição e tamanho reduzido da amostra. A mitigação envolve repetição das execuções, automação completa da coleta e uso de testes estatísticos adequados ao tipo de distribuição.
 
 ### 13.2 Validade interna
-Identifique ameaças e estratégias de controle.
+Há risco de interferência do ambiente (carga da máquina, versão do sistema, cache). A mitigação será feita com ambiente isolado, execução sequencial e limpeza de cache entre rodadas.
 
 ### 13.3 Validade de constructo
-Discuta representação dos conceitos medidos.
+As métricas podem não capturar totalmente aspectos como “qualidade” ou “abrangência”. Para mitigar, cada constructo foi associado a múltiplas métricas, definidas operacionalmente com critérios claros.
 
 ### 13.4 Validade externa
-Discuta generalização dos resultados.
+Os resultados podem não se aplicar a ecossistemas fora de Rust, JavaScript/TypeScript e Python ou a projetos muito maiores. A mitigação será selecionar projetos variados e documentar as características da amostra para permitir replicação.
 
 ### 13.5 Resumo das ameaças e mitigação
-Resuma ameaças principais e ações.
+As principais ameaças envolvem limitações de ambiente, escopo restrito e potencial ruído nas medidas. As ações de mitigação incluem automação, ambiente controlado, múltiplas métricas por conceito e documentação detalhada para facilitar replicação.
 
 ## 14. Ética, privacidade e conformidade
 ### 14.1 Questões éticas

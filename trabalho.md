@@ -16,6 +16,7 @@ EXP-ANDEP-001
 - v0.3 — Entrega 3 (28/11/2025): criação das seções 7, 8 e 9.
 - v0.4 — Entrega 4 (01/12/2025): criação das seções 10, 11 e 12.
 - v0.5 — Entrega 5 (05/12/2025): criação da seção 13.
+- v1.0 — Entrega Final (13/12/2025): Finalização da primeira versão do documento
 
 ### 1.4 Datas (criação, última atualização)
 - Data de criação: 23 de novembro de 2025.
@@ -341,74 +342,127 @@ Os resultados podem não se aplicar a ecossistemas fora de Rust, JavaScript/Type
 As principais ameaças envolvem limitações de ambiente, escopo restrito e potencial ruído nas medidas. As ações de mitigação incluem automação, ambiente controlado, múltiplas métricas por conceito e documentação detalhada para facilitar replicação.
 
 ## 14. Ética, privacidade e conformidade
+
 ### 14.1 Questões éticas
-Descreva questões éticas envolvidas.
+O experimento não envolve participantes humanos, entrevistas ou coleta de dados pessoais. Todos os objetos de estudo são projetos de software open-source, disponibilizados publicamente. Não há risco de dano direto a indivíduos ou organizações. O uso dos repositórios respeita as licenças associadas a cada projeto analisado.
 
 ### 14.2 Consentimento informado
-Explique como será obtido o consentimento.
+Não se aplica, pois não há sujeitos humanos envolvidos no experimento. Os dados analisados são públicos e acessíveis sem autenticação.
 
 ### 14.3 Privacidade e proteção de dados
-Indique que dados serão coletados e como serão protegidos.
+Não serão coletados dados pessoais, sensíveis ou identificáveis. Os dados armazenados consistem apenas em métricas técnicas, logs de execução e relatórios de ferramentas. Esses dados serão armazenados localmente, com controle de acesso restrito ao autor do experimento, e utilizados exclusivamente para fins acadêmicos.
 
 ### 14.4 Aprovações necessárias
-Liste aprovações (comitê de ética, jurídico, etc.).
+Por se tratar de um experimento técnico sem envolvimento humano, não é necessária aprovação de comitê de ética. A validação ocorre no âmbito acadêmico, com acompanhamento e aprovação do orientador da disciplina.
+
+---
 
 ## 15. Recursos, infraestrutura e orçamento
+
 ### 15.1 Recursos humanos e papéis
-Identifique membros e seus papéis.
+- Estudante pesquisador: planejamento, execução do experimento, coleta e análise dos dados.
+- Orientador da disciplina: acompanhamento metodológico, validação do planejamento e avaliação dos resultados.
 
 ### 15.2 Infraestrutura técnica necessária
-Liste ambientes, ferramentas e servidores.
+- Computador pessoal com sistema operacional Linux ou Windows.
+- Ferramentas de análise de dependências selecionadas para o experimento.
+- Ambiente de execução baseado em containers (ex.: Docker).
+- Scripts de automação para execução e coleta de métricas.
+- Acesso à internet para obtenção de repositórios e consultas a bases públicas.
 
 ### 15.3 Materiais e insumos
-Relacione materiais físicos ou digitais necessários.
+- Repositórios open-source públicos.
+- Bases públicas de vulnerabilidades (ex.: CVE, NVD).
+- Planilhas ou arquivos CSV para consolidação dos dados.
+- Editor de texto e ferramentas estatísticas para análise.
 
 ### 15.4 Orçamento e custos estimados
-Estime custos e fontes de financiamento.
+Não há custos financeiros diretos. Todas as ferramentas utilizadas são open-source ou gratuitas. O principal custo está relacionado ao tempo de dedicação do estudante e ao uso de infraestrutura computacional pessoal.
+
+---
 
 ## 16. Cronograma, marcos e riscos operacionais
+
 ### 16.1 Macrocronograma
-Defina datas e marcos principais.
+
+- **Semana 1:** revisão final do plano experimental e validação metodológica com o orientador.
+- **Semana 2:** implementação e ajustes dos scripts de automação e configuração do ambiente experimental.
+- **Semana 3:** execução do experimento piloto e correção de falhas identificadas.
+- **Semana 4:** execução completa do experimento com todos os projetos e tratamentos definidos.
+- **Semana 5:** consolidação dos dados coletados e análise estatística dos resultados.
+- **Semana 6:** interpretação dos resultados, revisão das ameaças à validade e preparação da entrega final.
 
 ### 16.2 Dependências entre atividades
-Indique dependências entre etapas.
+- A execução depende da conclusão do planejamento e da validação do protocolo.
+- A análise estatística depende da coleta completa e correta das métricas.
+- A consolidação dos resultados depende da execução bem-sucedida de todas as ferramentas.
 
-### 16.3 Riscos operacionais e contingência
-Liste riscos e estratégias de contingência.
+### 16.3 Riscos operacionais e plano de contingência
+- Falhas de execução das ferramentas: mitigadas por testes piloto e documentação de erros.
+- Indisponibilidade temporária de repositórios: mitigada pela seleção de projetos alternativos.
+- Problemas de ambiente: mitigados por uso de containers e scripts reproduzíveis.
+
+---
 
 ## 17. Governança do experimento
+
 ### 17.1 Papéis e responsabilidades formais
-Defina responsáveis, executores e revisores.
+O estudante é responsável pelo planejamento, execução, coleta e análise dos dados. O orientador atua como revisor metodológico e avaliador do experimento.
 
 ### 17.2 Ritos de acompanhamento
-Descreva reuniões e checkpoints.
+- Revisões periódicas do planejamento com o orientador.
+- Checkpoints antes da execução completa.
+- Revisão final dos resultados e conclusões.
 
-### 17.3 Controle de mudanças no plano
-Explique processo para registrar mudanças.
+### 17.3 Processo de controle de mudanças no plano
+Alterações no escopo, métricas ou protocolo devem ser documentadas em nova versão do plano, com justificativa clara e aprovação do orientador antes da execução.
 
-## 18. Documentação e reprodutibilidade
-### 18.1 Repositórios e convenções
-Indique onde documentos e scripts serão armazenados.
+---
+
+## 18. Plano de documentação e reprodutibilidade
+
+### 18.1 Repositórios e convenções de nomeação
+Todo o material do experimento será organizado em repositório versionado, contendo:
+- Documento do plano experimental.
+- Scripts de execução.
+- Dados coletados.
+- Resultados intermediários e finais.
 
 ### 18.2 Templates e artefatos padrão
-Liste modelos utilizados.
+Serão utilizados templates padronizados para:
+- Registro de métricas.
+- Relato de falhas de execução.
+- Consolidação dos resultados estatísticos.
 
-### 18.3 Plano de empacotamento
-Descreva como facilitar futuras replicações.
+### 18.3 Plano de empacotamento para replicação futura
+O experimento será documentado de forma que terceiros possam replicá-lo, incluindo instruções de ambiente, versões das ferramentas, parâmetros utilizados e estrutura dos dados.
+
+---
 
 ## 19. Plano de comunicação
+
 ### 19.1 Públicos e mensagens-chave
-Liste grupos e mensagens importantes.
+- Orientador e avaliadores: objetivos, metodologia, resultados e limitações.
+- Comunidade acadêmica: evidências empíricas e implicações metodológicas.
 
-### 19.2 Canais e frequência
-Defina canais e frequência de comunicação.
+### 19.2 Canais e frequência de comunicação
+A comunicação ocorrerá por meio de reuniões de orientação, entregas formais da disciplina e documentação escrita.
 
-### 19.3 Pontos obrigatórios
-Especifique eventos que exigem comunicação formal.
+### 19.3 Pontos de comunicação obrigatórios
+- Aprovação do plano experimental.
+- Comunicação de ajustes relevantes no protocolo.
+- Apresentação dos resultados finais.
 
-## 20. Critérios de prontidão (Definition of Ready)
+---
+
+## 20. Critérios de prontidão para execução (Definition of Ready)
+
 ### 20.1 Checklist de prontidão
-Liste itens que devem estar completos antes da execução.
+- Plano experimental revisado e aprovado.
+- Ferramentas selecionadas e instaladas.
+- Scripts de automação testados.
+- Ambiente de execução validado.
+- Projetos selecionados conforme critérios.
 
-### 20.2 Aprovações finais
-Indique quem deve dar o “ok final”.
+### 20.2 Aprovações finais para iniciar a operação
+O início da execução do experimento depende da validação final do plano pelo orientador da disciplina, registrada por meio de entrega oficial ou confirmação formal.

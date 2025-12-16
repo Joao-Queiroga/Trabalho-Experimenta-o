@@ -290,13 +290,21 @@ Não aplicável a sujeitos humanos; preparação técnica inclui validação do 
 Guia operacional com passos de execução, parâmetros padrão, checklist de preparação e template de registro de falhas.
 
 ### 11.3 Procedimento experimental (protocolo – visão passo a passo)
-1. Seleção e validação dos projetos conforme critérios.
-2. Configuração do ambiente isolado (container) para a execução.
-3. Limpeza de cache e preparação do projeto.
-4. Execução da ferramenta sobre o projeto (repetir conforme número de repetições).
-5. Coleta automática de logs, tempos e relatórios.
-6. Armazenamento e padronização dos resultados em planilha.
-7. Repetição para todas combinações de tratamento.
+
+```mermaid
+flowchart TD
+    A[Início] --> B[Selecionar e validar projetos]
+    B --> C[Configurar ambiente isolado - container]
+    C --> D[Limpar cache e preparar projeto]
+    D --> E[Executar ferramenta]
+    E --> F{Repetições concluídas?}
+    F -- Não --> E
+    F -- Sim --> G[Coletar logs, tempos e relatórios]
+    G --> H[Armazenar e padronizar resultados]
+    H --> I{Todas as combinações executadas?}
+    I -- Não --> D
+    I -- Sim --> J[Fim]
+```
 
 ### 11.4 Plano de piloto (se haverá piloto, escopo e critérios de ajuste)
 Piloto com 2 projetos (um simples, um complexo). Critérios de ajuste: inconsistência nos logs, falhas de execução ou métricas inválidas; ajustes no script ou no ambiente antes da execução em larga escala.
